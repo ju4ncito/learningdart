@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sign_in_button/sign_in_button.dart';
+import 'main_tutor.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -9,47 +12,76 @@ void main() {
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 39, 52, 119),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                margin: const EdgeInsets.all(10.0),
-                width: 500,
-                height: 70,
-                child: Center(
-                  child: Text('Tutorias TAIE',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium!
-                          .copyWith(color: Colors.white)),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              margin: const EdgeInsets.all(10.0),
+              width: 130,
+              height: 130,
+              child: IconButton(
+                icon: Image.network(
+                  'https://www2.ucc.edu.ar/archivos/imagenes/Institucional/IDENTIDAD_VISUAL_2018/SIGLA_UCC.png',
+                ),
+                onPressed: () {},
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.all(10.0),
+              width: 500,
+              child: Center(
+                child: Text(
+                  'Turnero TAIE',
+                  style: GoogleFonts.lato(
+                    textStyle: const TextStyle(
+                      color: Color(0xFF37364A),
+                      fontSize: 38,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.all(10.0),
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                child: IconButton(
-                  icon: Image.network(
-                      'https://cdn-icons-png.flaticon.com/512/2991/2991148.png'),
-                  onPressed: () {
-                    print('Google logo button pressed');
-                  },
-                ),
-              )
-            ],
-          ),
-        ));
+            ),
+            const SizedBox(height: 50),
+            Container(
+              margin: const EdgeInsets.all(10.0),
+              child: Column(
+                children: [
+                  Text(
+                    'Iniciar sesión',
+                    style: GoogleFonts.lato(
+                      textStyle: const TextStyle(
+                        color: Color(0xFF37364A),
+                        fontSize: 24,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  SignInButton(
+                    Buttons.google,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MainTutorPage(
+                                    tutorName: 'Juan',
+                                  )));
+                      // print('Google button pressed');
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

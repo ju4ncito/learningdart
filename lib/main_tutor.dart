@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 class MainTutorPage extends StatelessWidget {
   final String tutorName;
 
-  MainTutorPage({required this.tutorName});
+  const MainTutorPage({super.key, required this.tutorName});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,7 @@ class MainTutorPage extends StatelessWidget {
                   ),
                   radius: 16,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 25,
                 )
               ],
@@ -77,7 +77,7 @@ class MainTutorPage extends StatelessWidget {
                       title: Text('Item 3'),
                     ),
                     IconButton(
-                      icon: Icon(Icons.arrow_back),
+                      icon: const Icon(Icons.arrow_back),
                       onPressed: () {
                         Navigator.pop(context);
                       },

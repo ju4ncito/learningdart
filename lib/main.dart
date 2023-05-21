@@ -70,7 +70,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => MainTutorPage(
+                              builder: (context) => const MainTutorPage(
                                     tutorName: 'Juan',
                                   )));
                       // print('Google button pressed');
